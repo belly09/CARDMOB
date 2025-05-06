@@ -5,30 +5,32 @@ export default function App() {
   const [counter, setCounter] = useState(0);
 
   //// crud em memória
-  const [items, setItems] = useState(null);
-  const [text, setText] =  useState(null);
+  const [items, setItems] = useState([]);
+  const [text, setText] =  useState('');
   const [editItemId, setEditItemId] = useState(null);
   const [editItemText, setEditItemText] = useState('');
-  const incrementCounter = () => {
-    setCounter(counter + 1);
-  };
+  // const incrementCounter = () => {
+  //   setCounter(counter + 1);
+  // };
 
-  const decrementCounter = () => {
-    setCounter(counter - 1);
-  };
+  // const decrementCounter = () => {
+  //   setCounter(counter - 1);
+  // };
 
-  const addItem = () => {
-    if (text.trim() === ''){
-      return
+    // CREATE
+    const addItem = () => {
+      if (text.trim() === '') {
+        return;
+      }
+      const newItem = {
+        id: Math.random().toString(),
+        text: text.trim()
+      }
+      setItems([...items, newItem]);
+      setText('');
+      console.log(items);
     }
-    const newItem ={
-      id: Math.random().toString(),
-      text: text.trim()
-    }
-    setItems([...setItems, newItem]);
-    setText('')
-    console.log(items)
-  }
+
    // UPDATE
    const updateItem = (id) => {
     setItems( items.map( item => {
@@ -86,7 +88,7 @@ export default function App() {
       />
       <Button
         title='Add Item'
-        onpress={addItem}
+        onPress={addItem}
       />
        <FlatList
          data={items}
