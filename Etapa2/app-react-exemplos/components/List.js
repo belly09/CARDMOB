@@ -15,11 +15,26 @@ class List extends Component {
     }
 
     render() {
-        <View>
-            <Text style={styles.text}>
-                Lista de itens "clicáveis"
-            </Text>
-        </View>
+        return (
+            <View>
+                <Text style={styles.text}>
+                    Lista de itens "clicáveis"
+                </Text>
+                {
+                    this.state.names.map((item, index) => (
+                        <TouchableOpacity
+                            key={item.id}
+                            style={styles.container}
+                            onPress={() => this.alertItemName(item)}
+                        >
+                            <Text>
+                                {item.name}
+                            </Text>
+                        </TouchableOpacity>
+                    ))
+                }
+            </View>
+        )
     }
 }
 
