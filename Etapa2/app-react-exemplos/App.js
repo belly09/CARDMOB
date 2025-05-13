@@ -8,9 +8,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <List />
-      <View style={style.redbox}></View>
-      <View style={style.bluebox}></View>
-      <View style={style.blackbox}></View>
+      <View style={styles.redbox}></View>
+      <View style={styles.bluebox}></View>
+      <View style={styles.blackbox}></View>
     </View>
   );
 }
