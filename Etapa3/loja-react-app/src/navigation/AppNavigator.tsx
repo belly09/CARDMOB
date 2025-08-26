@@ -1,10 +1,9 @@
 import React from "react";
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { RootStackParamList, TabParamList } from './types';
 
-// Telas do app.
+// Telas do app - área não logada.
 import HomeScreen from "../screens/HomeScreen";
 // importar depois que implementar: DetailsScreen, SettingsScreen
 import RegisterScreen from "../screens/RegisterScreen";
@@ -23,7 +22,7 @@ function TabNavigator() {
     );
 }
 
-function AppNavigator() {
+function StackNavigator() {
   return (
     <AppStack.Navigator>
       <AppStack.Screen
@@ -45,10 +44,8 @@ function AppNavigator() {
   );
 }
 
-export default function RootNavigator() {
+export default function AppNavigator() {
   return (
-    <NavigationContainer>
-      <AppNavigator />
-    </NavigationContainer>
+    <StackNavigator />
   );
 };
